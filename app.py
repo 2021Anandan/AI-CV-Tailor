@@ -22,6 +22,15 @@ st.markdown("---")
 # Sidebar
 # --------------------------------------------------
 st.sidebar.title("About")
+st.sidebar.markdown("---")
+
+st.sidebar.subheader("Developer")
+
+st.sidebar.markdown("### Anandan M A")
+
+st.sidebar.markdown("**Founder**")
+
+st.sidebar.markdown("**RTVMS Innovations**")
 st.sidebar.info(
     """
 AI CV Tailor
