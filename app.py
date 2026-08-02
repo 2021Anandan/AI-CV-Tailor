@@ -144,3 +144,48 @@ if st.button("🚀 Analyze Resume", use_container_width=True):
 
     st.write(f"Characters: {len(job_description)}")
     st.write(f"Words: {len(job_description.split())}")
+    from src.llm.optimizer import generate_optimized_resume
+from src.llm.cover_letter import generate_cover_letter
+from src.llm.email_generator import generate_cold_email
+from src.llm.interview_prep import generate_interview_questions
+
+# --------------------------------------------------
+# AI Generation Modules
+# --------------------------------------------------
+st.markdown("---")
+st.markdown("## 🤖 AI Advanced Modules")
+
+tab1, tab2, tab3, tab4 = st.tabs([
+    "✨ Resume Optimization", 
+    "📝 Cover Letter", 
+    "📧 Cold Email", 
+    "🎯 Interview Prep"
+])
+
+with tab1:
+    st.subheader("AI Resume Optimization")
+    if st.button("Generate Optimized Resume"):
+        with st.spinner("Optimizing resume for target job..."):
+            optimized_cv = generate_optimized_resume(resume_text, job_description)
+            st.text_area("Optimized Content", optimized_cv, height=300)
+
+with tab2:
+    st.subheader("Cover Letter Generator")
+    if st.button("Generate Cover Letter"):
+        with st.spinner("Drafting professional cover letter..."):
+            cover_letter = generate_cover_letter(resume_text, job_description)
+            st.text_area("Cover Letter", cover_letter, height=300)
+
+with tab3:
+    st.subheader("Email Generator")
+    if st.button("Generate Cold Email"):
+        with st.spinner("Drafting recruiter outreach email..."):
+            cold_email = generate_cold_email(resume_text, job_description)
+            st.text_area("Cold Email", cold_email, height=300)
+
+with tab4:
+    st.subheader("Interview Preparation")
+    if st.button("Generate Interview Questions"):
+        with st.spinner("Preparing tailored technical & HR questions..."):
+            questions = generate_interview_questions(resume_text, job_description)
+            st.markdown(questions)
