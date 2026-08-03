@@ -3,17 +3,42 @@ from pathlib import Path
 from src.services.career_service import CareerService
 from src.exporter.docx_export import create_docx
 
-st.set_page_config(page_title="AI CV Tailor", page_icon="📄", layout="wide")
+# Page Configuration
+st.set_page_config(
+    page_title="AI CV Tailor", 
+    page_icon="📄", 
+    layout="wide"
+)
 
+# Header Section with Developer Details
 st.title("📄 AI CV Tailor - Production Dashboard")
-st.markdown("Transform your resume, beat ATS filters, and generate interview materials seamlessly.")
+st.markdown("""
+### 👨‍💼 Anandan M A
+**Founder | RTVMS Innovations**
 
+Transform your resume, beat ATS filters, and generate interview materials seamlessly.
+""")
+st.markdown("---")
+
+# Sidebar Configuration
 with st.sidebar:
     st.header("Configuration")
     uploaded_file = st.file_uploader("Upload Resume (.pdf or .docx)", type=["pdf", "docx"])
     job_description = st.text_area("Paste Job Description Here", height=200)
     analyze_btn = st.button("🚀 Analyze & Tailor Resume", type="primary")
 
+    st.markdown("---")
+    st.subheader("👨‍💼 Developer")
+    st.markdown("""
+**Anandan M A**  
+Founder  
+**RTVMS Innovations**  
+
+Version **1.0.0**
+    """)
+    st.markdown("---")
+
+# Main Analysis Logic
 if analyze_btn:
     if not uploaded_file or not job_description:
         st.error("Please upload a resume and provide a job description.")
@@ -28,10 +53,17 @@ if analyze_btn:
             except Exception as e:
                 st.error(f"Error during analysis: {e}")
 
+# Display Results if Available in Session State
 if "result" in st.session_state:
     res = st.session_state["result"]
     
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📊 ATS Score", "✨ Optimized Resume", "✉️ Cover Letter & Email", "❓ Interview Guide", "📥 Export"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+        "📊 ATS Score", 
+        "✨ Optimized Resume", 
+        "✉️ Cover Letter & Email", 
+        "❓ Interview Guide", 
+        "📥 Export"
+    ])
     
     with tab1:
         st.subheader("ATS Compatibility Analysis")
@@ -74,3 +106,10 @@ if "result" in st.session_state:
             file_name="optimized_resume.docx",
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
+
+st.markdown("---")
+
+# Footer Caption
+st.caption(
+    "© 2026 Anandan M A • Founder, RTVMS Innovations • AI CV Tailor v1.0.0"
+)
