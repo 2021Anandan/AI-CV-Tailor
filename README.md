@@ -94,3 +94,20 @@ https://www.linkedin.com/in/anandan-m-a-anandan/
 ## 📄 License
 
 MIT License
+---
+
+## 🚀 Live Application
+
+Try the deployed application here:
+
+🔗 https://ai-cv-tailor-zmiccmpjcm9qgjvj3bpfon.streamlit.app/
+
+### Features
+
+- 📄 Resume Parsing (PDF & DOCX)
+- 📊 ATS Score Analysis
+- 🤖 AI Resume Optimization
+- 📝 AI Cover Letter Generator
+- 📧 Recruiter Cold Email Generator
+- 🎯 AI Interview Preparation
+
